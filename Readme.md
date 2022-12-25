@@ -3,7 +3,26 @@
 >最后生成规则文件，供使用 shunt_rule/rules 目录下  
 >
 -  IPv6 自定义不能自动添加，但可以自动生成配置文件
-- 添加了AppleMap的域名请求conf, 解决了在中国大陆模式下无法使用AppleMap的问题
+-  AppleMap Domains 直连解决大陆模式下无法使用AppleMap的问题
+
+    ```text
+   # Solve AppleMap in mainland China cannot be used
+    cdn.apple-mapkit.com
+    configuration.ls.apple.com
+    gs-loc.apple.com
+    gsp-ssl.ls.apple.com
+    gsp64-ssl.ls.apple.com
+    gspe1-ssl.ls.apple.com
+    gspe12-ssl.ls.apple.com
+    gspe19-ssl.ls.apple.com
+    gspe21-ssl.ls.apple.com
+    gspe35-ssl.ls.apple.com
+    gspe76-ssl.ls.apple.com
+    i-resv.meituan.com
+    m.hotmail.com
+    mesu.apple.com
+    p218-mailws.icloud.com.cn
+    ```
 
 | 设备            | Link                                                                                                              |
 |---------------|-------------------------------------------------------------------------------------------------------------------|
