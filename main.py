@@ -270,7 +270,8 @@ class Menu(object):
             print("以上IP不在规则中, 无需删除")
 
     def menu_4(self):
-        self.rule_file_generator.generate_all()
+        # self.rule_file_generator.generate_all()
+        self.rule_file_generator.openwrt_rule_generator()
         print("生成成功")
 
     def domain_or_ip_to_info(self, domain_or_ip: str) -> list:
