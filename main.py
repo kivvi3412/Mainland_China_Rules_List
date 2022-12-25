@@ -128,7 +128,7 @@ class ip_info_searcher(object):
                 start_ip_obj = ipaddress.IPv4Address(need_add_ip_segment_def[0][0])
                 end_ip_obj = ipaddress.IPv4Address(need_add_ip_segment_def[0][5])
                 ip_range_obj = ipaddress.summarize_address_range(start_ip_obj, end_ip_obj)
-                ip_address_range = [str(i) for i in ip_range_obj][0]
+                ip_address_range = [str(i) for i in ip_range_obj]
 
                 ipv4_network_info = {
                     "ip": ipv4_ip,
@@ -241,7 +241,8 @@ class Menu(object):
                 if input("添加router_info or ip_address_range? (r/i)\n-> ").lower() == "r":
                     self.rule_operator.add_ip_net([i["router_info"] for i in ip_info if i["router_info"]])
                 else:
-                    self.rule_operator.add_ip_net([i["ip_address_range"] for i in ip_info if i["ip_address_range"]])
+                    self.rule_operator.add_ip_net(
+                        [x for j in [i["ip_address_range"] for i in ip_info if i["ip_address_range"]] for x in j])
                 print("添加成功")
             else:
                 print("取消添加")
@@ -293,7 +294,10 @@ class Menu(object):
         for ip_info_dict in ip_info:
             info = ""
             for k, v in ip_info_dict.items():
-                info += "\t" + k.ljust(20) + str(v) + "\n"
+                if type(v) == list:
+                    info += "\t" + k.ljust(20) + " ".join(v) + "\n"
+                else:
+                    info += "\t" + k.ljust(20) + str(v) + "\n"
             print(info)
 
 
