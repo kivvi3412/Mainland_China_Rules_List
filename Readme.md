@@ -9,20 +9,41 @@
    ```text
   # Solve AppleMap in mainland China cannot be used
    cdn.apple-mapkit.com
-   configuration.ls.apple.com
-   gs-loc.apple.com
-   gsp-ssl.ls.apple.com
-   gsp64-ssl.ls.apple.com
-   gspe1-ssl.ls.apple.com
-   gspe12-ssl.ls.apple.com
-   gspe19-ssl.ls.apple.com
-   gspe21-ssl.ls.apple.com
-   gspe35-ssl.ls.apple.com
-   gspe76-ssl.ls.apple.com
-   i-resv.meituan.com
-   m.hotmail.com
-   mesu.apple.com
-   p218-mailws.icloud.com.cn
+  configuration.ls.apple.com
+  gs-loc.apple.com
+  gsp-ssl.ls.apple.com
+  gsp3-ssl.ls.apple.com
+  gsp11-ssl.ls.apple.com
+  gsp12-ssl.ls.apple.com
+  gsp19-ssl.ls.apple.com
+  gsp21-ssl.ls.apple.com
+  gsp35-ssl.ls.apple.com
+  gsp45-ssl.ls.apple.com
+  gsp57-ssl.ls.apple.com
+  gsp76-ssl.ls.apple.com
+  gsp79-ssl.ls.apple.com
+  gsp85-ssl.ls.apple.com
+  gspe-ssl.ls.apple.com 
+  gspe1-ssl.ls.apple.com
+  gspe11-ssl.ls.apple.com
+  gspe12-ssl.ls.apple.com
+  gspe19-ssl.ls.apple.com
+  gspe21-ssl.ls.apple.com
+  gspe35-ssl.ls.apple.com
+  gspe48-ssl.ls.apple.com
+  gspe72-ssl.ls.apple.com
+  gspe76-ssl.ls.apple.com
+  gspe79-ssl.ls.apple.com
+  gspe85-ssl.ls.apple.com
+  gspe92-ssl.ls.apple.com
+  gspe111-ssl.ls.apple.com
+  i-resv.meituan.com
+  m.hotmail.com
+  mesu.apple.com
+  p218-fmfmobile.icloud.com.cn
+  p218-fmipmobile.icloud.com.cn
+  p218-mailws.icloud.com.cn
+  statici.icloud.com
    ```
 
 | 设备            | Link                                                                                                              |
