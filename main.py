@@ -110,7 +110,7 @@ class ip_info_searcher(object):
         ipv4_network_info_list = []
         try:
             for ipv4_ip in ipv4_ip_list:
-                url = 'https://ip.bczs.net/' + ipv4_ip
+                url = 'http://ip.bczs.net/' + ipv4_ip
                 response = requests.get(url).text
                 need_add_ip_segment_def = re.findall(
                     r'((25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|[1-9])\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)) - ((25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|[1-9])\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d))',
