@@ -182,7 +182,7 @@ class rule_file_generator(object):
 
     def shadowrocket_rule_generator(self):
         file_head = '''[General]\nbypass-system = true\nskip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, localhost, *.local, captive.apple.com\ntun-excluded-routes = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 192.168.0.0/16, 198.18.0.0/15, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32\ndns-server = system\nipv6 = true\nprefer-ipv6 = false\ndns-fallback-system = false\ndns-direct-system = false\nicmp-auto-reply = true\nalways-reject-url-rewrite = false\nprivate-ip-answer = true\ndns-direct-fallback-proxy = true\n\n[Rule]\n'''
-        file_tail = '''FINAL,PROXY\n\n[Host]\nlocalhost = 127.0.0.1\n\n[URL Rewrite]\n^https?://(www.)?g.cn https://www.google.com 302\n^https?://(www.)?google.cn https://www.google.com 302\n'''
+        file_tail = '''GEPIP,CN,DIRECT\nFINAL,PROXY\n\n[Host]\nlocalhost = 127.0.0.1\n\n[URL Rewrite]\n^https?://(www.)?g.cn https://www.google.com 302\n^https?://(www.)?google.cn https://www.google.com 302\n'''
         shadowrocket_ipv4_rule = '\n'.join("IP-CIDR," + i + ',DIRECT' for i in self.ipv4_list)
         shadowrocket_ipv6_rule = '\n'.join("IP-CIDR6," + i + ',DIRECT' for i in self.ipv6_list)
         with open(self.shadowrocket_mix_file, "w") as f:
