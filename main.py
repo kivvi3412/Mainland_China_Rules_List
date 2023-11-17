@@ -166,33 +166,15 @@ class rule_file_generator(object):
         self.ipv6_list_text = "\n".join(self.ipv6_list)
         self.openwrt_ipv4_file = "shunt_rule/rules/openwrt_ipv4.txt"
         self.openwrt_ipv6_file = "shunt_rule/rules/openwrt_ipv6.txt"
-        self.shadowrocket_mix_file = "shunt_rule/rules/shadowrocket_mix.conf"
-        self.surge_mix_file = "shunt_rule/rules/surge_mix.txt"
 
     def generate_all(self):
         self.openwrt_rule_generator()
-        self.shadowrocket_rule_generator()
-        self.surge_rule_generator()
 
     def openwrt_rule_generator(self):
         with open(self.openwrt_ipv4_file, "w") as f:
             f.write(self.ipv4_list_text)
         with open(self.openwrt_ipv6_file, "w") as f:
             f.write(self.ipv6_list_text)
-
-    def shadowrocket_rule_generator(self):
-        file_head = '''[General]\nbypass-system = true\nskip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, localhost, *.local, captive.apple.com\ntun-excluded-routes = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 192.168.0.0/16, 198.18.0.0/15, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32\ndns-server = system\nipv6 = true\nprefer-ipv6 = false\ndns-fallback-system = false\ndns-direct-system = false\nicmp-auto-reply = true\nalways-reject-url-rewrite = false\nprivate-ip-answer = true\ndns-direct-fallback-proxy = true\n\n[Rule]\n'''
-        file_tail = '''GEPIP,CN,DIRECT\nFINAL,PROXY\n\n[Host]\nlocalhost = 127.0.0.1\n\n[URL Rewrite]\n^https?://(www.)?g.cn https://www.google.com 302\n^https?://(www.)?google.cn https://www.google.com 302\n'''
-        shadowrocket_ipv4_rule = '\n'.join("IP-CIDR," + i + ',DIRECT' for i in self.ipv4_list)
-        shadowrocket_ipv6_rule = '\n'.join("IP-CIDR6," + i + ',DIRECT' for i in self.ipv6_list)
-        with open(self.shadowrocket_mix_file, "w") as f:
-            f.write(file_head + shadowrocket_ipv4_rule + "\n" + shadowrocket_ipv6_rule + "\n" + file_tail)
-
-    def surge_rule_generator(self):
-        surge_ipv4_rule = '\n'.join("IP-CIDR," + i + ',DIRECT' for i in self.ipv4_list)
-        surge_ipv6_rule = '\n'.join("IP-CIDR6," + i + ',DIRECT' for i in self.ipv6_list)
-        with open(self.surge_mix_file, "w") as f:
-            f.write(surge_ipv4_rule + "\n" + surge_ipv6_rule)
 
 
 class Menu(object):
