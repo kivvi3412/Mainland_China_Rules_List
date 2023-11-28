@@ -4,6 +4,10 @@ from intervaltree import IntervalTree
 import ipaddress
 from tqdm import tqdm
 
+"""
+代码作用: 检测文件内IP段是否有重复
+"""
+
 file_path = 'shunt_rule/rules/openwrt_ipv4.txt'
 
 with open(file_path, 'r') as file:
